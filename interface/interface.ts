@@ -10,7 +10,7 @@ let myObj = { size: 10, label: "Size 10 Object" };
 printLabel(myObj);
 
 //可选属性
-interface Square {
+interface SquareS {
   color: string;
   area: number;
 }
@@ -21,7 +21,7 @@ interface SquareConfig {
   [propName: string]: any;
 }
 
-function createSquare(config: SquareConfig): Square {
+function createSquare(config: SquareConfig): SquareS {
   let newSquare = { color: "white", area: 100 };
   if (config.color) {
     newSquare.color = config.color;
@@ -50,7 +50,7 @@ interface SearchFunc {
   (source: string, subString: string): boolean;
 }
 
-let mySearch: SearchFunc = function (
+let mySearch: SearchFunc = function(
   source: string,
   subString: string
 ): boolean {
@@ -79,27 +79,26 @@ interface ClockInterface {
 
 //构造器部分
 interface ClockConstructor {
-  new(hour: number, minute: number): ClockInterface;
+  new (hour: number, minute: number): ClockInterface;
 }
 
-function createClock(ctor: ClockConstructor, hour: number, minute: number)
-  : ClockInterface {
+function createClock(
+  ctor: ClockConstructor,
+  hour: number,
+  minute: number
+): ClockInterface {
   return new ctor(hour, minute);
 }
 
 class DigitalClock implements ClockInterface {
-  constructor(h: number, m: number) {
-
-  }
+  constructor(h: number, m: number) {}
   tick() {
-    console.log('beep beep');
+    console.log("beep beep");
   }
 }
 
 class AnalogClock implements ClockInterface {
-  constructor(h: number, m: number) {
-
-  }
+  constructor(h: number, m: number) {}
   tick() {
     console.log("tick toc");
   }
